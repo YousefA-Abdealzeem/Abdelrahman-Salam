@@ -36,3 +36,21 @@
 .section-divider::after {
     background: linear-gradient(to right, transparent, #C9A84C, transparent);
 }
+
+
+/* ===============================
+   LOCK SCROLL BEFORE OPENING
+================================ */
+
+html.lock-scroll,
+body.lock-scroll{
+    overflow: hidden !important;
+    height: 100vh;
+    touch-action: none;
+}
+
+/* يمنع سحب الصفحة في الموبايل */
+body.lock-scroll{
+    position: fixed;
+    width: 100%;
+}

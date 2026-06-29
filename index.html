@@ -192,7 +192,8 @@
     </style>
 </head>
 
-<body class="bg-royal-900 text-cream overflow-x-hidden selection:bg-gold-500 selection:text-royal-900 antialiased">
+<body id="body"
+      class="bg-royal-900 text-cream overflow-x-hidden selection:bg-gold-500 selection:text-royal-900 antialiased lock-scroll">
 
     <!-- Audio Player -->
     <audio id="weddingMusic" loop>
@@ -530,6 +531,7 @@
 
     <script>
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        
 
         // Countdown Timer System
         function updateCountdown() {
@@ -610,33 +612,109 @@
         });
 
         openBtn.addEventListener('click', () => {
-            audio.volume = 0.4;
-            audio.play().then(() => {
-                isPlaying = true;
-                musicControl.classList.remove('hidden');
-            }).catch(e => console.log("Audio accessibility gesture dynamic handling passive.", e));
 
-            const openTl = gsap.timeline({
-                onComplete: () => { curtainLayer.style.display = 'none'; }
-            });
+    // ============================
+    // Enable Scroll
+    // ============================
 
-            openTl.to("#entryContent", { opacity: 0, duration: 0.6, ease: "power3.out" });
-            openTl.to("#centerGlow", { opacity: 1, duration: 1.2, scale: 1.4 }, "<");
-            openTl.to(".curtain-left", {
-                xPercent: -105, skewX: 4, scaleX: 0.95, duration: 2.4, ease: "power4.inOut"
-            }, "open");
-            openTl.to(".curtain-right", {
-                xPercent: 105, skewX: -4, scaleX: 0.95, duration: 2.4, ease: "power4.inOut"
-            }, "open");
-            openTl.to("#mainContent", {
-                opacity: 1, filter: "blur(0px)", duration: 2.2, ease: "power3.out"
-            }, "-=1.8");
-            openTl.set(".curtain-panel", { skewX: 0, scaleX: 1 });
+    document.documentElement.classList.remove("lock-scroll");
+    document.body.classList.remove("lock-scroll");
 
-            createParticles();
-            createPetals();
-            runHeroAnimations();
-        });
+    audio.volume = 0.4;
+
+    audio.play().then(() => {
+
+        isPlaying = true;
+
+        musicControl.classList.remove('hidden');
+
+    }).catch(e => console.log(e));
+
+    const openTl = gsap.timeline({
+
+        onComplete: () => {
+
+            curtainLayer.style.display = 'none';
+
+        }
+
+    });
+
+    openTl.to("#entryContent", {
+
+        opacity: 0,
+
+        duration: .6,
+
+        ease: "power3.out"
+
+    });
+
+    openTl.to("#centerGlow", {
+
+        opacity: 1,
+
+        duration: 1.2,
+
+        scale: 1.4
+
+    }, "<");
+
+    openTl.to(".curtain-left", {
+
+        xPercent: -105,
+
+        skewX: 4,
+
+        scaleX: .95,
+
+        duration: 2.4,
+
+        ease: "power4.inOut"
+
+    }, "open");
+
+    openTl.to(".curtain-right", {
+
+        xPercent: 105,
+
+        skewX: -4,
+
+        scaleX: .95,
+
+        duration: 2.4,
+
+        ease: "power4.inOut"
+
+    }, "open");
+
+    openTl.to("#mainContent", {
+
+        opacity: 1,
+
+        filter: "blur(0px)",
+
+        duration: 2.2,
+
+        ease: "power3.out"
+
+    }, "-=1.8");
+
+    openTl.set(".curtain-panel", {
+
+        skewX: 0,
+
+        scaleX: 1
+
+    });
+
+    createParticles();
+
+    createPetals();
+
+    runHeroAnimations();
+
+});
 
         // Audio System Controller
         musicControl.addEventListener('click', () => {
