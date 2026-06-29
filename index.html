@@ -612,6 +612,7 @@
         });
 
         openBtn.addEventListener('click', () => {
+            invitationOpened = true;
 
     // ============================
     // Enable Scroll
@@ -771,6 +772,52 @@
                 text: storyText, duration: 5, ease: "none"
             });
         }
+
+        /* ==========================================
+   Prevent Scroll Until Invitation Opens
+========================================== */
+
+let invitationOpened = false;
+
+const preventKeys = [
+    "ArrowUp",
+    "ArrowDown",
+    "PageUp",
+    "PageDown",
+    "Home",
+    "End",
+    "Space"
+];
+
+window.addEventListener("keydown", function (e) {
+
+    if (!invitationOpened && preventKeys.includes(e.code)) {
+
+        e.preventDefault();
+
+    }
+
+}, { passive: false });
+
+window.addEventListener("wheel", function (e) {
+
+    if (!invitationOpened) {
+
+        e.preventDefault();
+
+    }
+
+}, { passive: false });
+
+window.addEventListener("touchmove", function (e) {
+
+    if (!invitationOpened) {
+
+        e.preventDefault();
+
+    }
+
+}, { passive: false });
     </script>
 </body>
 
