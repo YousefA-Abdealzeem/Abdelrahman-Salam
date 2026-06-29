@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عبدالرحمن & سلمى</title>
+    <meta property="og:title" content="حفل زفاف عبدالرحمن وسلمى">
+    <meta property="og:description" content="يسعدنا دعوتكم للاحتفال بزفاف عبدالرحمن وسلمى">
+
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: {
+                            900: '#141414', /* Deep Cinematic Obsidian */
+                            800: '#1C1C1C', /* Rich Charcoal Slate */
+                            700: '#2C2C2C', /* Soft Muted Dark */
+                            100: '#FBFBF9'  /* Editorial Warm Pearl Cream */
+                        },
+                        gold: {
+                            400: '#DFCD96', /* Soft Muted Premium Gold Accent */
+                            500: '#C9A84C', /* Master Primary Gold */
+                            600: '#A48434', /* Burnished Antique Gold Shadow */
+                            glow: 'rgba(201, 168, 76, 0.25)'
+                        },
+                        cream: '#F5F0E8',   /* Pure Matte Luxurious Alabaster */
+                        silver: '#8C8C8C'   /* Elegant Platinum Complementary */
+                    },
+                    fontFamily: {
+                        arabic: ['Amiri', 'serif'],
+                        naskh: ['Scheherazade New', 'serif'],
+                        body: ['Noto Naskh Arabic', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury-sm': '0 4px 30px rgba(0, 0, 0, 0.03)',
+                        'luxury-md': '0 10px 40px rgba(0, 0, 0, 0.08)',
+                        'luxury-lg': '0 20px 60px rgba(0, 0, 0, 0.15)',
+                        'gold-glow': '0 0 30px rgba(201, 168, 76, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Editorial Reset */
+        * { font-family: 'Amiri', serif; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+        
+        html { scroll-behavior: smooth; background-color: #141414; }
+
+        /* Smooth Cinematic Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #141414; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8C8C8C, #C9A84C, #8C8C8C); border-radius: 10px; }
+
+        /* Micro Interactive Elements */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0;
+            background: radial-gradient(circle, rgba(223,205,150,0.8) 0%, rgba(201,168,76,0) 70%);
+        }
+
+        .petal {
+            position: fixed;
+            pointer-events: none;
+            z-index: 40;
+            opacity: 0.6;
+            will-change: transform;
+            filter: blur(0.5px);
+        }
+
+        /* Pure Typographic Sophistication */
+        .text-shadow-gold {
+            text-shadow: 0 4px 24px rgba(201, 168, 76, 0.25);
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow { animation: spin-slow 90s linear infinite; }
+
+        /* الأنيميشن المخصص لنبض القلب البنيوي */
+        @keyframes luxury-heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.12); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.12); }
+            70% { transform: scale(1); }
+        }
+        .animate-heartbeat { animation: luxury-heartbeat 1.6s infinite cubic-bezier(0.215, 0.610, 0.355, 1); }
+
+        /* Theater Curtain Architecture */
+        .curtain-container { perspective: 1400px; background-color: #0F0F0F; }
+
+        .curtain-panel {
+            background-color: #161616;
+            background-image: 
+                linear-gradient(90deg, 
+                    rgba(15,15,15,0.95) 0%, 
+                    rgba(30,30,30,0.2) 20%, 
+                    rgba(255,255,255,0.01) 50%, 
+                    rgba(30,30,30,0.2) 80%, 
+                    rgba(15,15,15,0.95) 100%);
+            box-shadow: inset 0 0 120px rgba(0,0,0,0.95);
+            transform-origin: top center;
+            will-change: transform;
+        }
+
+        .curtain-hem {
+            background: linear-gradient(90deg, #8C8C8C 0%, #DFCD96 30%, #C9A84C 50%, #DFCD96 70%, #8C8C8C 100%);
+            box-shadow: 0 0 35px rgba(201, 168, 76, 0.35);
+        }
+
+        .stage-glow {
+            background: radial-gradient(circle at center, rgba(201,168,76,0.15) 0%, rgba(20,20,20,0) 75%);
+            mix-blend-mode: plus-lighter;
+            opacity: 0;
+        }
+
+        /* Structural Flourishes */
+        .arabic-border {
+            border-image: linear-gradient(to right, transparent, rgba(201,168,76,0.7), transparent) 1;
+        }
+
+        .ornament {
+            color: #C9A84C;
+            font-size: 1.25rem;
+            opacity: 0.8;
+            letter-spacing: 0.2em;
+        }
+
+        .quran-text {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.85rem;
+            line-height: 2.4;
+            color: #DFCD96;
+            text-shadow: 0 4px 30px rgba(223,205,150,0.15);
+        }
+
+        /* Editorial Dividers */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.4), transparent);
+        }
+        
+        .names-script {
+            font-family: 'Scheherazade New', serif;
+            font-weight: 400;
+        }
+
+        body { direction: rtl; }
+
+        /* Premium Glassmorphism Definitions */
+        .glass-card {
+            background: rgba(28, 28, 28, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(223, 205, 150, 0.12);
+        }
+
+        .glass-card-light {
+            background: rgba(251, 251, 249, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-royal-900 text-cream overflow-x-hidden selection:bg-gold-500 selection:text-royal-900 antialiased">
+
+    <!-- Audio Player -->
+    <audio id="weddingMusic" loop>
+        <source src="Albumaty.Com.Mahmoud.El.Esseily.Farha.mp3" type="audio/ogg">
+    </audio>
+
+    <!-- Redesigned Minimal Floating Audio Player Control -->
+    <div id="musicControl" class="fixed bottom-8 right-8 z-50 cursor-pointer hidden">
+        <div class="w-14 h-14 rounded-full bg-royal-800 border border-gold-500/30 flex items-center justify-center shadow-luxury-lg hover:border-gold-500 hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group">
+            <div class="absolute inset-0 rounded-full bg-gold-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping"></div>
+            <i id="musicIcon" class="fas fa-music text-gold-400 group-hover:text-gold-500 transition-colors duration-300 text-sm"></i>
+        </div>
+    </div>
+
+    <!-- ==================== CURTAIN ENTRY ==================== -->
+    <div id="curtainLayer" class="fixed inset-0 z-[100] flex curtain-container overflow-hidden pointer-events-auto" style="direction:ltr;">
+
+        <!-- Central Stage Light Vignette -->
+        <div id="centerGlow" class="absolute inset-0 stage-glow z-[90]"></div>
+
+        <!-- Left Curtain -->
+        <div class="curtain-panel curtain-left w-1/2 h-full relative z-[100] flex items-center justify-end">
+            <div class="absolute right-0 top-0 bottom-0 w-[2px] md:w-[3px] curtain-hem"></div>
+            <div class="text-gold-500 opacity-5 text-9xl absolute -right-32 top-1/4 rotate-45 pointer-events-none">✨</div>
+        </div>
+
+        <!-- Right Curtain -->
+        <div class="curtain-panel curtain-right w-1/2 h-full relative z-[100] flex items-center justify-start">
+            <div class="absolute left-0 top-0 bottom-0 w-[2px] md:w-[3px] curtain-hem"></div>
+            <div class="text-gold-500 opacity-5 text-9xl absolute -left-32 top-1/4 rotate-45 pointer-events-none">✨</div>
+        </div>
+
+        <!-- Entry Content -->
+        <div id="entryContent" class="absolute inset-0 flex flex-col items-center justify-center z-[101] text-center px-4">
+            <div class="relative p-8 md:p-16 border border-gold-500/20 bg-royal-900/80 backdrop-blur-md rounded-2xl shadow-luxury-lg max-w-2xl w-full mx-4 transition-all duration-500">
+                <div class="absolute inset-0 border border-gold-500/5 m-1 rounded-2xl pointer-events-none"></div>
+                
+                <!-- Quran Verse Section -->
+                <div class="mb-10 px-2">
+                    <p class="quran-text entry-text opacity-0">
+                        ﴾ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ﴿
+                    </p>
+                    <p class="text-gold-400 text-xs mt-4 entry-text opacity-0 font-body uppercase tracking-widest opacity-60">سورة الروم - آية ٢١</p>
+                </div>
+
+                <div class="section-divider entry-text opacity-0">
+                    <span class="ornament">✧</span>
+                </div>
+
+                <p class="font-arabic text-silver text-lg md:text-xl mb-4 entry-text opacity-0 tracking-widest opacity-80">
+                    يسعدنا دعوتكم لحضور حفل زفاف
+                </p>
+
+                <h1 class="names-script text-5xl md:text-7xl text-cream mb-2 entry-text opacity-0 text-shadow-gold tracking-wide">
+                    عبدالرحمن
+                </h1>
+                <p class="text-gold-400 text-2xl my-3 entry-text opacity-0 font-arabic opacity-70">&</p>
+                <h1 class="names-script text-5xl md:text-7xl text-cream mb-8 entry-text opacity-0 text-shadow-gold tracking-wide">
+                    سلمى
+                </h1>
+
+                <div class="section-divider entry-text opacity-0">
+                    <span class="ornament">✦</span>
+                </div>
+
+                <!-- Luxury Minimalist Button Trigger -->
+                <button id="openBtn"
+                    class="group relative mt-6 px-12 py-4 bg-transparent border border-gold-500/40 text-gold-400 font-arabic text-lg tracking-widest overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:border-gold-500 hover:shadow-gold-glow rounded-none">
+                    <span class="relative z-10 group-hover:text-royal-900 transition-colors duration-500 ease-out">افتح الدعوة</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-gold-400 to-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] -z-0"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="mainContent" class="opacity-0 filter blur-xl transition-all duration-1000">
+
+        <!-- Hero Section -->
+        <section class="min-h-screen relative flex flex-col items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <!-- تم استبدال الصورة هنا بالصورة المطلوبة "٣.jpeg" مع إبقاء التعتيم الأسود متناسقاً وفخماً لحماية النصوص -->
+                <img src="٣.jpeg"
+                    class="w-full h-full object-cover opacity-35 scale-105 parallax-bg transition-transform duration-700 ease-out" alt="خلفية الزفاف">
+                <div class="absolute inset-0 bg-gradient-to-b from-royal-900/90 via-royal-900/60 to-royal-900"></div>
+            </div>
+
+            <!-- Subtle Geometry Luxury Overlays -->
+            <div class="absolute top-16 right-16 opacity-5 w-48 h-48 pointer-events-none">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="32" fill="none" stroke="#C9A84C" stroke-width="0.25"/>
+                </svg>
+            </div>
+            <div class="absolute top-16 left-16 opacity-5 w-48 h-48 scale-x-[-1] pointer-events-none">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="32" fill="none" stroke="#C9A84C" stroke-width="0.25"/>
+                </svg>
+            </div>
+
+            <div class="relative z-10 text-center px-4 mt-12 max-w-4xl">
+                <!-- Bismillah Header -->
+                <div class="gsap-hero-reveal transform translate-y-8 opacity-0 mb-10">
+                    <p class="names-script text-gold-400 text-2xl md:text-3xl opacity-90">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                </div>
+
+                <p class="gsap-hero-reveal font-arabic text-silver tracking-widest mb-6 transform translate-y-8 opacity-0 text-base uppercase">
+                    بكل فرح وسرور يدعوكم
+                </p>
+
+                <h1 class="gsap-hero-reveal names-script text-6xl md:text-9xl text-cream mb-4 transform translate-y-8 opacity-0 text-shadow-gold tracking-wide">
+                    عبدالرحمن
+                </h1>
+                <div class="gsap-hero-reveal transform translate-y-8 opacity-0 my-2">
+                    <span class="text-gold-400 opacity-60 text-3xl font-arabic">&</span>
+                </div>
+                <h1 class="gsap-hero-reveal names-script text-6xl md:text-9xl text-cream mb-10 transform translate-y-8 opacity-0 text-shadow-gold tracking-wide">
+                    سلمى
+                </h1>
+
+                <p class="gsap-hero-reveal font-arabic text-lg md:text-xl text-silver mb-12 transform translate-y-8 opacity-0 tracking-wide max-w-md mx-auto opacity-80">
+                    لحضور حفل زفافهما المبارك
+                </p>
+
+                <div class="gsap-hero-reveal transform translate-y-8 opacity-0">
+                    <div class="inline-block border-y border-gold-500/20 py-4 px-12 bg-royal-800/20 backdrop-blur-sm">
+                        <span class="font-arabic text-xl md:text-2xl tracking-widest text-gold-400">الأربعاء ٢٣ سبتمبر ٢٠٢٦</span>
+                    </div>
+                    <div class="mt-4 font-arabic text-silver tracking-widest text-base uppercase opacity-60">الساعة التاسعة مساءً</div>
+                </div>
+
+                <!-- Premium Floating Indicator Pin -->
+                <div class="absolute bottom-[-15vh] left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+                    <span class="w-[1px] h-12 bg-gradient-to-b from-gold-500 to-transparent"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Editorial Portrait Section -->
+        <section class="py-32 bg-royal-100 text-royal-900 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-80 h-80 opacity-5 pointer-events-none">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full animate-spin-slow">
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="#C9A84C" stroke-width="0.75"/>
+                    <polygon points="100,10 121,70 190,70 134,110 155,175 100,135 45,175 66,110 10,70 79,70" fill="none" stroke="#8C8C8C" stroke-width="0.5"/>
+                </svg>
+            </div>
+
+            <div class="container mx-auto px-6 max-w-6xl relative z-10">
+                <div class="text-center mb-24">
+                    <h2 class="font-arabic text-3xl md:text-4xl text-royal-900 tracking-widest uppercase mb-4 section-title opacity-0">العروسان</h2>
+                    <div class="w-12 h-[1px] bg-gold-500 mx-auto opacity-60"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-16 md:gap-8">
+                    <!-- Groom Card -->
+                    <div class="text-center couple-card opacity-0 transform translate-x-16 flex flex-col items-center">
+                        <div class="relative w-64 h-80 mb-8 group">
+                            <div class="absolute inset-0 border border-gold-500/20 translate-x-3 translate-y-3 transition-transform duration-700 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+                            <div class="relative overflow-hidden w-full h-full shadow-luxury-md bg-royal-800">
+                                <img src="١.jpeg"
+                                    class="w-full h-full object-cover grayscale scale-100 hover:scale-105 hover:grayscale-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                                    alt="العريس">
+                            </div>
+                        </div>
+                        <h3 class="names-script text-4xl text-royal-900 mb-3 tracking-wide">عبدالرحمن</h3>
+                        <p class="font-arabic text-royal-700/70 text-sm max-w-xs leading-relaxed italic">"عندما رأيتها عرفت أن بحثي قد انتهى"</p>
+                    </div>
+
+                    <!-- الفاصل السينمائي: نبضات القلب التفاعلية المتوهجة -->
+                    <div class="text-gold-500 text-3xl flex flex-col justify-center items-center h-full opacity-90 relative py-8 md:py-0">
+                        <!-- خطوط ربط جانبية خلفية للشاشات الكبيرة -->
+                        <div class="absolute inset-x-0 top-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold-500/20 to-transparent hidden md:block z-0 w-64 -translate-x-16"></div>
+                        
+                        <!-- حاوية النبض التفاعلية -->
+                        <div class="relative z-10 flex items-center justify-center cursor-pointer group">
+                            <!-- طبقات النبض الخلفية الدائرية (تأثير الهالة المتوهجة) -->
+                            <div class="absolute w-12 h-12 bg-gold-500/20 rounded-full animate-ping [animation-duration:2s]"></div>
+                            <div class="absolute w-16 h-16 bg-gold-400/10 rounded-full animate-ping [animation-duration:3s] delay-300"></div>
+                            
+                            <!-- الأيقونة الأساسية للقلب مع حركة النبض الفخمة المستمرة -->
+                            <div class="w-14 h-14 rounded-full bg-royal-100 border border-gold-500/40 flex items-center justify-center shadow-gold-glow transform transition-transform duration-500 group-hover:scale-110 active:scale-95 animate-heartbeat">
+                                <i class="fas fa-heart text-gold-500 text-xl filter drop-shadow-[0_0_8px_rgba(201,168,76,0.6)]"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bride Card -->
+                    <div class="text-center couple-card opacity-0 transform -translate-x-16 flex flex-col items-center">
+                        <div class="relative w-64 h-80 mb-8 group">
+                            <div class="absolute inset-0 border border-gold-500/20 -translate-x-3 translate-y-3 transition-transform duration-700 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+                            <div class="relative overflow-hidden w-full h-full shadow-luxury-md bg-royal-800">
+                                <img src="٣.jpeg"
+                                    class="w-full h-full object-cover grayscale scale-100 hover:scale-105 hover:grayscale-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                                    alt="العروس">
+                            </div>
+                        </div>
+                        <h3 class="names-script text-4xl text-royal-900 mb-3 tracking-wide">سلمى</h3>
+                        <p class="font-arabic text-royal-700/70 text-sm max-w-xs leading-relaxed italic">"وجدت فيه حبي وصديقي وبيتي"</p>
+                    </div>
+                </div>
+
+                <div class="mt-28 text-center max-w-3xl mx-auto px-4">
+                    <div class="section-divider opacity-40">
+                        <span class="ornament">❋</span>
+                    </div>
+                    <p id="storyTypewriter" class="font-arabic text-lg md:text-xl text-royal-800/90 leading-relaxed tracking-wide min-h-[3.5rem]"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wedding Day Event Details Section -->
+        <section class="py-32 bg-royal-800 relative border-t border-royal-700/20">
+            <div class="container mx-auto px-6 max-w-5xl">
+                
+                <div class="text-center mb-24">
+                    <h2 class="font-arabic text-3xl md:text-4xl text-gold-400 mb-3 section-title opacity-0 tracking-widest uppercase">تفاصيل حفل الزفاف</h2>
+                    <div class="w-12 h-[1px] bg-gold-500/40 mx-auto mt-4"></div>
+                    <p class="font-arabic text-silver mt-4 text-base tracking-wide opacity-80">احتفالٌ بالحب والبهجة الأبدية</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-16">
+                    <!-- Luxury Grid Event Card -->
+                    <div class="relative timeline-item">
+                        <div class="glass-card rounded-2xl p-8 md:p-16 text-center hover:border-gold-500/30 transition-all duration-700 shadow-luxury-lg relative group">
+                            <div class="absolute inset-0 border border-gold-500/5 m-2 rounded-2xl pointer-events-none"></div>
+                            
+                            <div class="text-gold-400 text-4xl mb-6 opacity-70">
+                                <i class="far fa-heart"></i>
+                            </div>
+
+                            <h3 class="names-script text-4xl md:text-5xl text-cream mb-8 tracking-wide">حفل الزفاف الإلهي</h3>
+
+                            <div class="section-divider opacity-30">
+                                <span class="ornament">✦</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 relative z-10">
+                                <div class="text-center px-4 border-b md:border-b-0 md:border-l border-gold-500/10 pb-6 md:pb-0">
+                                    <div class="text-gold-400 text-xl mb-4 opacity-80"><i class="fal fa-calendar-alt"></i></div>
+                                    <p class="font-arabic text-silver text-xs uppercase tracking-widest mb-2">التاريخ مخصص</p>
+                                    <p class="font-arabic text-cream text-lg mb-1">الأربعاء</p>
+                                    <p class="names-script text-gold-400 text-2xl">٢٣ سبتمبر ٢٠٢٦</p>
+                                </div>
+
+                                <div class="text-center px-4 border-b md:border-b-0 md:border-l border-gold-500/10 pb-6 md:pb-0">
+                                    <div class="text-gold-400 text-xl mb-4 opacity-80"><i class="fal fa-clock"></i></div>
+                                    <p class="font-arabic text-silver text-xs uppercase tracking-widest mb-2">ميعاد الحضور</p>
+                                    <p class="names-script text-gold-400 text-2xl mt-2">٩:٠٠ مساءً</p>
+                                </div>
+
+                                <div class="text-center px-4">
+                                    <div class="text-gold-400 text-xl mb-4 opacity-80"><i class="fal fa-map-marker-alt"></i></div>
+                                    <p class="font-arabic text-silver text-xs uppercase tracking-widest mb-2">الموقع الجغرافي</p>
+                                    <p class="font-arabic text-gold-400 text-xl max-w-xs mx-auto leading-relaxed mt-2">نادي الالومنيوم الرياضي قاعه دهب</p>
+                                </div>
+                            </div>
+
+                            <div class="section-divider mt-12 opacity-30">
+                                <span class="ornament">✦</span>
+                            </div>
+
+                            <p class="font-arabic text-silver text-base italic mt-6 opacity-80">
+                                "يسعدنا ويشرفنا مشاركتكم هذه الليلة الفريدة والمميزة"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Editorial Countdown System -->
+                    <div class="glass-card rounded-2xl p-8 md:p-12 text-center timeline-item relative">
+                        <div class="absolute inset-0 border border-gold-500/5 m-1 rounded-2xl pointer-events-none"></div>
+                        <h3 class="font-arabic text-gold-400 text-lg uppercase tracking-widest mb-8 opacity-90">العد التنازلي لليلة العمر</h3>
+                        <div id="countdown" class="grid grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto">
+                            <div class="bg-royal-900/40 rounded-xl p-4 border border-gold-500/10 hover:border-gold-500/30 transition-all duration-500">
+                                <div id="days" class="names-script text-3xl md:text-5xl text-gold-400">--</div>
+                                <div class="font-arabic text-silver text-xs uppercase tracking-widest mt-2 opacity-60">يوم</div>
+                            </div>
+                            <div class="bg-royal-900/40 rounded-xl p-4 border border-gold-500/10 hover:border-gold-500/30 transition-all duration-500">
+                                <div id="hours" class="names-script text-3xl md:text-5xl text-gold-400">--</div>
+                                <div class="font-arabic text-silver text-xs uppercase tracking-widest mt-2 opacity-60">ساعة</div>
+                            </div>
+                            <div class="bg-royal-900/40 rounded-xl p-4 border border-gold-500/10 hover:border-gold-500/30 transition-all duration-500">
+                                <div id="minutes" class="names-script text-3xl md:text-5xl text-gold-400">--</div>
+                                <div class="font-arabic text-silver text-xs uppercase tracking-widest mt-2 opacity-60">دقيقة</div>
+                            </div>
+                            <div class="bg-royal-900/40 rounded-xl p-4 border border-gold-500/10 hover:border-gold-500/30 transition-all duration-500">
+                                <div id="seconds" class="names-script text-3xl md:text-5xl text-gold-400">--</div>
+                                <div class="font-arabic text-silver text-xs uppercase tracking-widest mt-2 opacity-60">ثانية</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quran & Sacred Blessings Section -->
+        <section class="py-32 bg-cream text-royal-900 relative overflow-hidden border-t border-gold-500/10">
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+                <div class="w-full h-full" style="background-image: repeating-linear-gradient(45deg, #C9A84C 0px, #C9A84C 1px, transparent 0px, transparent 50%); background-size: 30px 30px;"></div>
+            </div>
+            <div class="container mx-auto px-6 max-w-4xl relative z-10">
+                <div class="text-center venue-card opacity-0 transform translate-y-12">
+                    <div class="mb-10">
+                        <svg class="w-12 h-12 mx-auto opacity-40" viewBox="0 0 100 100">
+                            <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="none" stroke="#2C2C2C" stroke-width="1"/>
+                            <circle cx="50" cy="50" r="12" fill="none" stroke="#2C2C2C" stroke-width="0.75"/>
+                        </svg>
+                    </div>
+
+                    <div class="border border-gold-500/30 p-8 md:p-16 rounded-2xl bg-royal-100/60 backdrop-blur-md shadow-luxury-md relative">
+                        <div class="absolute inset-0 border border-gold-500/10 m-1 rounded-2xl pointer-events-none"></div>
+                        <p class="names-script text-3xl md:text-4xl text-royal-900 leading-relaxed mb-8">
+                            ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ﴾
+                        </p>
+                        <div class="section-divider opacity-40">
+                            <span class="ornament text-royal-900">✦</span>
+                        </div>
+                        <p class="font-arabic text-gold-600 text-sm tracking-widest uppercase mt-4">سورة الروم - آية ٢١</p>
+
+                        <div class="mt-12 p-6 md:p-8 bg-royal-900/5 border border-gold-500/5 rounded-xl">
+                            <p class="font-arabic text-royal-800 text-xl tracking-wide leading-loose">
+                                اللهم بارك لهما، وبارك عليهما، واجمع بينهما في خير ميمون
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Luxury Editorial Minimalist Footer -->
+        <footer class="bg-royal-900 text-center py-16 border-t border-royal-800/60 relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-[1px] bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"></div>
+            <h2 class="names-script text-4xl text-gold-400 mb-4 tracking-wide">عبدالرحمن & سلمى</h2>
+            <div class="section-divider max-w-xs mx-auto opacity-20">
+                <span class="text-gold-600">✦</span>
+            </div>
+            <p class="font-arabic text-silver text-base tracking-widest opacity-80 mt-4">٢٣ سبتمبر ٢٠٢٦</p>
+            <p class="font-arabic text-silver/40 text-xs tracking-wide mt-10">صُنع بكل حب لتوثيق هذا اليوم الاستثنائي المعمور</p>
+            <p class="font-arabic text-silver/30 text-xs tracking-widest mt-2 uppercase">Design by Eng: Yousef Alian</p>
+        </footer>
+    </main>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+        // Countdown Timer System
+        function updateCountdown() {
+            const weddingDate = new Date('2026-09-23T21:00:00');
+            const now = new Date();
+            const diff = weddingDate - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Subtle Premium Floating Atmospheric Particles
+        function createParticles() {
+            const container = document.body;
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 3 + 1.5;
+                particle.style.cssText = `width:${size}px;height:${size}px;border-radius:50%;left:${Math.random()*100}vw;top:${Math.random()*100}vh;`;
+                container.appendChild(particle);
+                gsap.to(particle, {
+                    y: -120 - Math.random() * 180,
+                    x: Math.random() * 40 - 20,
+                    opacity: Math.random() * 0.4 + 0.1,
+                    duration: Math.random() * 6 + 7,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: Math.random() * 6
+                });
+            }
+        }
+
+        // Drop Petals Function
+        function createPetals() {
+            const petalSVG = "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzAgMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1LDBDNSwxMCwwLDIwLDE1LDMwQzMwLDIwLDI1LDEwLDE1LDB6IiBmaWxsPSIjREZDRDk2IiBvcGFjaXR5PSIwLjM1Ii8+PC9zdmc+";
+            for (let i = 0; i < 12; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                const size = Math.random() * 16 + 8;
+                petal.style.cssText = `background-image:url('${petalSVG}');width:${size}px;height:${size}px;left:${Math.random()*100}vw;top:-40px;`;
+                document.body.appendChild(petal);
+                gsap.to(petal, {
+                    y: '115vh',
+                    x: `+=${Math.random() * 80 - 40}`,
+                    rotation: Math.random() * 360 + 180,
+                    duration: Math.random() * 6 + 9,
+                    repeat: -1,
+                    ease: "none",
+                    delay: Math.random() * 4
+                });
+            }
+        }
+
+        // Cinematic Entrance Timeline Execution
+        const openBtn = document.getElementById('openBtn');
+        const curtainLayer = document.getElementById('curtainLayer');
+        const mainContent = document.getElementById('mainContent');
+        const audio = document.getElementById('weddingMusic');
+        const musicControl = document.getElementById('musicControl');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+
+        gsap.to(".entry-text", {
+            y: 0, opacity: 1, stagger: 0.15, duration: 1.4, ease: "power4.out", delay: 0.4
+        });
+
+        openBtn.addEventListener('click', () => {
+            audio.volume = 0.4;
+            audio.play().then(() => {
+                isPlaying = true;
+                musicControl.classList.remove('hidden');
+            }).catch(e => console.log("Audio accessibility gesture dynamic handling passive.", e));
+
+            const openTl = gsap.timeline({
+                onComplete: () => { curtainLayer.style.display = 'none'; }
+            });
+
+            openTl.to("#entryContent", { opacity: 0, duration: 0.6, ease: "power3.out" });
+            openTl.to("#centerGlow", { opacity: 1, duration: 1.2, scale: 1.4 }, "<");
+            openTl.to(".curtain-left", {
+                xPercent: -105, skewX: 4, scaleX: 0.95, duration: 2.4, ease: "power4.inOut"
+            }, "open");
+            openTl.to(".curtain-right", {
+                xPercent: 105, skewX: -4, scaleX: 0.95, duration: 2.4, ease: "power4.inOut"
+            }, "open");
+            openTl.to("#mainContent", {
+                opacity: 1, filter: "blur(0px)", duration: 2.2, ease: "power3.out"
+            }, "-=1.8");
+            openTl.set(".curtain-panel", { skewX: 0, scaleX: 1 });
+
+            createParticles();
+            createPetals();
+            runHeroAnimations();
+        });
+
+        // Audio System Controller
+        musicControl.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.classList.remove('fa-music');
+                musicIcon.classList.add('fa-volume-mute');
+                musicControl.querySelector('div').classList.remove('animate-pulse');
+            } else {
+                audio.play();
+                musicIcon.classList.add('fa-music');
+                musicIcon.classList.remove('fa-volume-mute');
+                musicControl.querySelector('div').classList.add('animate-pulse');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        function runHeroAnimations() {
+            gsap.to(".gsap-hero-reveal", {
+                translateY: 0, opacity: 1, stagger: 0.15, duration: 1.5, ease: "power4.out"
+            });
+            
+            // Premium Viewport Trigger Tracking
+            gsap.utils.toArray('.section-title').forEach(title => {
+                gsap.to(title, {
+                    scrollTrigger: { trigger: title, start: "top 85%" },
+                    opacity: 1, duration: 1.2, ease: "power3.out"
+                });
+            });
+
+            gsap.utils.toArray('.couple-card').forEach(card => {
+                gsap.to(card, {
+                    scrollTrigger: { trigger: card, start: "top 85%" },
+                    x: 0, opacity: 1, duration: 1.4, ease: "power4.out"
+                });
+            });
+
+            gsap.utils.toArray('.timeline-item').forEach(item => {
+                gsap.from(item, {
+                    scrollTrigger: { trigger: item, start: "top 90%" },
+                    y: 40, opacity: 0, duration: 1.2, ease: "power3.out"
+                });
+            });
+
+            gsap.to(".venue-card", {
+                scrollTrigger: { trigger: ".venue-card", start: "top 85%" },
+                y: 0, opacity: 1, duration: 1.2, ease: "power4.out"
+            });
+
+            // Luxury Script Typographic Reveal
+            const storyText = "بدأت قصتنا بكلمة مخلصة، واليوم نكتب معاً أجمل فصول العمر الأبدي. يسعدنا بكل فخر وحب أن تشاركونا فرحة الميثاق لتوثيق هذا العهد الأبدي.";
+            gsap.to("#storyTypewriter", {
+                scrollTrigger: { trigger: "#storyTypewriter", start: "top 90%" },
+                text: storyText, duration: 5, ease: "none"
+            });
+        }
+    </script>
+</body>
+
+</html>

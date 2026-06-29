@@ -1,0 +1,38 @@
+/* Custom Elements Overrides */
+::-webkit-scrollbar-track { background: #2C2C2C; }
+::-webkit-scrollbar-thumb { background: #C9A84C; }
+
+.text-shadow-gold {
+    text-shadow: 0 2px 15px rgba(201, 168, 76, 0.6);
+}
+
+.curtain-panel {
+    background-color: #2C2C2C;
+}
+
+.curtain-hem {
+    background: linear-gradient(to bottom, #8C8C8C, #C9A84C, #8C8C8C);
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
+}
+
+.stage-glow {
+    background: radial-gradient(circle, rgba(201,168,76,0.3) 0%, rgba(44,44,44,0) 70%);
+}
+
+.arabic-border {
+    border-image: linear-gradient(to right, transparent, #C9A84C, transparent) 1;
+}
+
+.ornament {
+    color: #C9A84C;
+}
+
+.quran-text {
+    color: #C9A84C;
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+}
+
+.section-divider::before,
+.section-divider::after {
+    background: linear-gradient(to right, transparent, #C9A84C, transparent);
+}
